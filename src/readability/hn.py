@@ -1,10 +1,8 @@
-#    Readable Feeds
-#    Copyright (C) 2009  
+#    SmashFeeds
+#    Copyright (C) 2010 Victor Lobo
 #    
-#    This file originally written by Nirmal Patel (http://nirmalpatel.com/).
-#    Generic feed and Google App Engine support added by Andrew Trusty (http://andrewtrusty.com/).
-#
-#    This file is part of Readable Feeds.
+#    This file originally a part of Readable Feeds is now a part of SmashFeeds
+#    Original license follows and still applies to SmashFeeds
 #
 #    Readable Feeds is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -33,6 +31,7 @@ import time
 import urlgrabber
 
 from appengine_utilities.cache import Cache
+
 
 
 # memcache & db backed cache that stores entries for 1 week
@@ -225,7 +224,7 @@ def upgradeFeed(feedUrl, agent=None, out=None):
     if agent and (('Mozilla/' in agent or 'Opera/' in agent) and 
                   ('Googlebot' not in agent) and ('Yahoo!' not in agent)):
         agent = None
-        # i would pass-thrhough all user-agents but feedBurner returns HTML
+        # i would pass-through all user-agents but feedBurner returns HTML
         #    instead of the feed with some user agents
         #    (but only on GAE & not on dev which makes this even more confusing) 
     if not agent:
@@ -252,6 +251,17 @@ def upgradeFeed(feedUrl, agent=None, out=None):
     start_time = time.time()
     items = []
     for entry in parsedFeed.entries:
+        #entry.title = entry.title + "Hacker"
+        
+
+        # Victor
+        # Added a hack for Hacker News to include the link in the item title
+        # This allows me to check which site the content came from
+        # TODO: make this generic
+        if feedUrl == 'http://news.ycombinator.com/rss':
+            entry.title = entry.title + " < " + urlparse.urlparse(entry.link).netloc + " >"
+        # End hack
+        
         content = upgradeLink(entry.link, agent)
         items.append((entry, content))
         
@@ -268,8 +278,8 @@ def upgradeFeed(feedUrl, agent=None, out=None):
     
     
     
-if __name__ == "__main__":  
-    print upgradeFeed(HN_RSS_FEED)
+#if __name__ == "__main__":  
+#    print upgradeFeed(HN_RSS_FEED)
 
 
 

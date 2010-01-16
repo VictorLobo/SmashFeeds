@@ -1,3 +1,9 @@
+#    SmashFeeds
+#    Copyright (C) 2010 Victor Lobo
+#    
+#    This file originally a part of Readable Feeds is now a part of SmashFeeds
+#    Original license follows and still applies to SmashFeeds
+#
 #    Readable Feeds
 #    Copyright (C) 2009  Andrew Trusty (http://andrewtrusty.com)
 #    

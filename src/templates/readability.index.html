@@ -17,33 +17,8 @@
 	<div class="span-24 last">
 		<div id="feed-create" class="last">
 			<form method="get" action="feed">
-		
-		<table id="shares" cellpadding="0" cellspacing="0" align="left" style="float:right;font-size:0.7em;padding-top:10px;">
-		  <tr>
-			<td class="share">
-				<a href="http://www.facebook.com/share.php?u={{ urlquote(url) }}">
-				<img src="/images/facebook.png" alt="Share on Facebook" />
-				<br /><span>Facebook</span></a>
-			</td>
-			<td class="share">
-				<a href="http://del.icio.us/post?url={{ urlquote(url) }}&title={{ urlquote(title) }}">
-				<img src="/images/delicious.png" alt="Bookmark on Delicious" />
-				<br /><span>delicious</span></a>
-			</td>
-			<td class="share">
-				<a href="http://www.stumbleupon.com/submit?url={{ urlquote(url) }}&title={{ urlquote(title) }}">
-				<img src="/images/stumbleupon.png" alt="Share on StumbleUpon" />
-				<br /><span>StumbleUpon</span></a>
-			</td>
-			<td class="share">
-				<a href="http://twitter.com/andrewtrusty">
-				<img src="/images/twitter.png" alt="Follow on Twitter" />
-				<br /><span>Twitter</span></a>
-			</td>
-		  </tr>
-		</table>
-		
-				<h2><span style="color:#449C3A;font-weight:bold;">Readable</span> Feeds</h2>
+
+				<h2><span style="color:#449C3A;font-weight:bold;">Smash</span>Feeds</h2>
 		
 				<br />
 				Feed URL &nbsp;<input type="text" name="url" value="http://" />
@@ -51,8 +26,7 @@
 				<button type="submit" class="positive">Create</button>
 				</div>
 			</form>
-			
-		
+
 		</div>
 	</div>	
 	
@@ -60,14 +34,14 @@
 	<div class="span-12 last">
 		<div class="intro" class="" style="width:410px;">
 			<h4>Streamline Your Feeds</h4>
-			Readable Feeds can filter out ads and other junk from your feeds so
+			SmashFeeds is a fork of Readable Feeds developed by <a href="http://andrewtrusty.com/">Andrew Trusty.</a>
+			SmashFeeds can filter out ads and other junk from your feeds so
 			that you can concentrate on the content.  It can even repair crippled
 			feeds that only show small excerpts instead of the full content,
 			saving you the time and hassle of leaving your feed reader.
 			<br /><br />
-			Readable Feeds is brand new and there is a good chance
-			it may fail spectacularly on some feeds.  Any and all 
-			<a href="http://andrewtrusty.com/contact/">feedback</a> would be appreciated!
+			SmashFeeds is brand new and there is a good chance
+			it may fail spectacularly on some feeds.
 			<br /><br />
 		</div>
 	</div>
@@ -81,7 +55,7 @@
 		provides the algorithm for extracting webpage content.  
 		<a href="http://www.nirmalpatel.com/hacks/hnrss.html">Nirmal Patel's Hacker News Readability script</a>
 		provided the inspiration and initial code.  Finally, throw in bit of glue code
-		by <a href="http://andrewtrusty.com/">yours truly</a> to make everything 
+		by <a href="http://andrewtrusty.com/">Andrew Trusty</a> to make everything 
 		run on Google App Engine and voila, Readable Feeds is born!
 		</div>				
 	</div>
@@ -129,13 +103,15 @@
 			</fieldset>
 		</div>
 	</div>
+	
+	<div id="credits">
+        design & (some) code by <a href="http://andrewtrusty.com/">Andrew Trusty</a>
+</div>
 
 	</td></tr>
 </table>
 
-<div id="credits">
-        design & (some) code by <a href="http://andrewtrusty.com/">Andrew Trusty</a>
-</div>
+
 
 
 {% endblock %}

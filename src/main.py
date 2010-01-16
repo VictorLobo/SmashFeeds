@@ -1,3 +1,9 @@
+#    SmashFeeds
+#    Copyright (C) 2010 Victor Lobo
+#    
+#    This file originally a part of Readable Feeds is now a part of SmashFeeds
+#    Original license follows and still applies to SmashFeeds
+#
 #    Readable Feeds
 #    Copyright (C) 2009  Andrew Trusty (http://andrewtrusty.com)
 #    
@@ -22,26 +28,26 @@ from gae_utils import *
 
 
 class MainHandler(RenderHandler):
-  def get(self):
-    args = utils.storage()
-    self.render('index', args)
+    def get(self):
+        args = utils.storage()
+        self.render('index', args)
 
 
 from readability import *
 
 
 def main():
-  logging.getLogger().setLevel(logging.DEBUG)
+    logging.getLogger().setLevel(logging.DEBUG)
 
-  application = webapp.WSGIApplication([('/', MainHandler),
+    application = webapp.WSGIApplication([('/', MainHandler),
                                         ('/readability/', ReadabilityHandler),
                                         ('/readability/feed', ReadabilityFeedHandler),
                                         ('/readability/site', ReadabilitySiteHandler),
                                         ],
                                        debug=DEV)
   
-  wsgiref.handlers.CGIHandler().run(application)
+    wsgiref.handlers.CGIHandler().run(application)
 
 
 if __name__ == '__main__':
-  main()
+    main()
